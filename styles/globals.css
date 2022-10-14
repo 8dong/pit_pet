@@ -1,26 +1,94 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import url('./reset.css');
+@import url('antd/dist/antd.css');
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#__next {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.page-section {
+  padding-top: 150px;
+}
+
+.header-section {
+  max-width: 640px;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 999;
+}
+
+.shop-item {
+  position: relative;
+}
+
+.like-btn {
+  position: absolute;
+  top: 70%;
+  left: 85%;
+}
+
+.like-svg {
+  font-size: 20px;
+}
+
+.active {
+  color: red;
+}
+
+.style-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-between;
+}
+
+.shop-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-img img {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.shop-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tel-section {
+  display: flex;
+  margin: 20px;
+}
+
+.tel-section span {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.tel-section p {
+  margin: auto 0;
+}
+
+.time-section {
+  display: flex;
+  margin: 20px;
 }
