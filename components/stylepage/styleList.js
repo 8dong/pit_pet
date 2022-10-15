@@ -1,36 +1,27 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { Card } from 'antd';
 const { Meta } = Card;
 
-const StyleList = () => {
-  useEffect(() => {
-    fetch('/api/fetchStyleList')
-      .then((res) => res.json())
-      .then((data) => {
-        setStlyeList(data);
-      });
-  }, []);
-
-  const [styleList, setStlyeList] = useState([]);
+const StyleList = (props) => {
+  console.log(props);
 
   return (
     <ul>
-      {styleList.map((style) => (
-        <li key={style._id}>
-          <Link href={`/shop_info/${style.key}`}>
-            <a>
+      {props.styleInfoList.map((styleInfo) => (
+        <li key={styleInfo.id}>
+          <Link href={`/shop_info/${styleInfo.shopId}`}>
+            <a className='style-item'>
               <Card
                 hoverable
                 style={{
-                  width: 200,
-                  marginBottom: 30,
-                  marginRight: 'auto',
-                  marginLeft: 'auto'
+                  width: 300,
+                  marginBottom: 10,
+                  marginRight: 10,
+                  marginLeft: 10
                 }}
-                cover={<img alt={style.desc} src={style.img} />}
+                cover={<img alt={styleInfo.styleDesc} src={styleInfo.styleImg} />}
               >
-                <Meta title={style.name} description={style.desc} />
+                <Meta description={styleInfo.styleDesc} />
               </Card>
             </a>
           </Link>
