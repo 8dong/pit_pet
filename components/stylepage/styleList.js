@@ -3,8 +3,6 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 const StyleList = (props) => {
-  console.log(props);
-
   return (
     <ul>
       {props.styleInfoList.map((styleInfo) => (
