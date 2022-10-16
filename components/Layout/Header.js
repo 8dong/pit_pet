@@ -1,33 +1,32 @@
 import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { PageHeader, Tabs, Button } from 'antd';
 
-import { useSession, signOut } from 'next-auth/react';
+import { useSession, signOut, getSession } from 'next-auth/react';
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 const Header = () => {
   const { data: session } = useSession();
-  console.log(session);
-
-  const [pageKey, setPageKey] = useState('1');
 
   const router = useRouter();
+
+  const [pageKey, setPageKey] = useState('0');
 
   const backButtonClickHandler = () => {
     router.back();
   };
 
-  const onChange = (key) => {
-    if (key === '1') {
+  const onChange = (pageKey) => {
+    if (pageKey === '1') {
       router.push('/');
       setPageKey('1');
     }
-    if (key === '2') {
+    if (pageKey === '2') {
       router.push('/style_book');
       setPageKey('2');
     }
-    if (key === '3') {
+    if (pageKey === '3') {
       router.push('/my_page');
       setPageKey('3');
     }
@@ -64,7 +63,7 @@ const Header = () => {
 
       <Button
         onClick={() => {
-          if (!session) router.push('/auth-form');
+          if (!session) router.push('/auth_form');
           else signOut();
         }}
         className='auth-btn'

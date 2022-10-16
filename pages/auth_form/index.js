@@ -1,4 +1,3 @@
-import { LoginOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from 'antd';
 
 import { signIn, signOut } from 'next-auth/react';
@@ -8,19 +7,15 @@ const AuthForm = () => {
     {
       name: 'Naver',
       signInHandler: () => signIn('naver', { callbackUrl: '/' })
+    },
+    {
+      name: 'Google',
+      signInHandler: () => signIn('google', { callbackUrl: '/' })
+    },
+    {
+      name: 'Kakao',
+      signInHandler: () => signIn('kakao', { callbackUrl: '/' })
     }
-    // {
-    //   name: 'Google',
-    //   signInHandler: () => signIn('google', { callbackUrl: '/' })
-    // },
-    // {
-    //   name: 'Kakao',
-    //   signInHandler: () => signIn('kakao', { callbackUrl: '/' })
-    // },
-    // {
-    //   name: 'Instagram',
-    //   signInHandler: () => signIn('instagram', { callbackUrl: '/' })
-    // }
   ];
 
   return (

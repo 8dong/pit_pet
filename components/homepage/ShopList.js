@@ -1,4 +1,5 @@
 import Link from 'next/link';
+
 import { HeartOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;

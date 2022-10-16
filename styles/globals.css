@@ -178,3 +178,11 @@ button {
   margin: 0;
   padding: 10px;
 }
+
+.denied-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}

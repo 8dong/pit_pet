@@ -7,6 +7,7 @@ export async function getStaticProps() {
   );
 
   const database = client.db();
+
   const shopCollection = database.collection('shop_list');
 
   const shopData = await shopCollection.find().toArray();
