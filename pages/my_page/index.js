@@ -47,7 +47,7 @@ const MyPage = (props) => {
         <Link href='/auth_form'>
           <Button
             onClick={() => {
-              router.push('/auth-form');
+              router.push('/auth_form');
             }}
             type='primary'
             icon={<LoginOutlined />}
