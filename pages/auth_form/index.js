@@ -1,17 +1,17 @@
-import { Button, Tooltip } from 'antd';
+import { Button } from 'antd';
 
-import { signIn, signOut } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 
 const AuthForm = () => {
   const authList = [
-    {
-      name: 'Naver',
-      signInHandler: () => signIn('naver', { callbackUrl: '/' })
-    },
-    {
-      name: 'Google',
-      signInHandler: () => signIn('google', { callbackUrl: '/' })
-    },
+    // {
+    //   name: 'Naver',
+    //   signInHandler: () => signIn('naver', { callbackUrl: '/' })
+    // },
+    // {
+    //   name: 'Google',
+    //   signInHandler: () => signIn('google', { callbackUrl: '/' })
+    // },
     {
       name: 'Kakao',
       signInHandler: () => signIn('kakao', { callbackUrl: '/' })

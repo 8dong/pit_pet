@@ -6,10 +6,12 @@ const { Meta } = Card;
 
 import { MongoClient, ObjectId } from 'mongodb';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
+import Maps from '../../components/Map';
 
 export async function getServerSideProps() {
   const client = await MongoClient.connect(
@@ -50,7 +52,7 @@ export async function getServerSideProps() {
 const ShopPage = (props) => {
   const [styleListShow, setStyleListShow] = useState(false);
 
-  const showButtonTexgt = styleListShow ? '닫기' : '펼치기';
+  const styleListButton = styleListShow ? '닫기' : '펼치기';
 
   const showStyleListHandler = () => {
     setStyleListShow((prevState) => !prevState);
@@ -77,6 +79,7 @@ const ShopPage = (props) => {
           }}
         >
           <h3>Information</h3>
+
           <Link href={'tel:053-0000-0000'}>
             <a className='tel-section'>
               <PhoneOutlined />
@@ -88,6 +91,8 @@ const ShopPage = (props) => {
             <ClockCircleOutlined />
             <p>{shopInfo.time}</p>
           </div>
+
+          <Maps />
         </Card>
       </div>
       <div className='shop-section'>
@@ -95,7 +100,7 @@ const ShopPage = (props) => {
           <Button
             onClick={showStyleListHandler}
             type='primary'
-          >{`스타일 북 ${showButtonTexgt}`}</Button>
+          >{`스타일 북 ${styleListButton}`}</Button>
           <Button type='primary'>{`리뷰`}</Button>
         </div>
         {styleListShow && (
@@ -115,6 +120,7 @@ const ShopPage = (props) => {
             ))}
           </ul>
         )}
+        {}
       </div>
     </>
   ) : (
