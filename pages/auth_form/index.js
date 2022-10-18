@@ -14,7 +14,9 @@ const AuthForm = () => {
     // },
     {
       name: 'Kakao',
-      signInHandler: () => signIn('kakao', { callbackUrl: '/' })
+      signInHandler: () => {
+        signIn('kakao', { callbackUrl: '/' });
+      }
     }
   ];
 
