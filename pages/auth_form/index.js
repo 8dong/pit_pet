@@ -6,7 +6,7 @@ const AuthForm = () => {
   const authList = [
     {
       name: 'Naver',
-      signInHandler: () => signIn('naver')
+      signInHandler: () => signIn('naver', { callbackUrl: '/' })
     }
   ];
 
