@@ -8,16 +8,6 @@ const AuthForm = () => {
       name: 'Naver',
       signInHandler: () => signIn('naver')
     }
-    // {
-    //   name: 'Google',
-    //   signInHandler: () => signIn('google', { callbackUrl: '/' })
-    // },
-    // {
-    //   name: 'Kakao',
-    //   signInHandler: () => {
-    //     signIn('kakao', { callbackUrl: '/' });
-    //   }
-    // }
   ];
 
   return (

@@ -186,3 +186,11 @@ button {
   align-items: center;
   height: 500px;
 }
+
+.review-section {
+  padding: 10px;
+}
+
+/* .review-list {
+  width: 80%;
+} */
