@@ -1,6 +1,5 @@
-import { Avatar, Comment, Input } from 'antd';
+import { Avatar, Comment } from 'antd';
 import { useState, useEffect } from 'react';
-import { useSession } from 'next-auth/react';
 
 import ReivewEditor from './ReviewEidtor';
 
