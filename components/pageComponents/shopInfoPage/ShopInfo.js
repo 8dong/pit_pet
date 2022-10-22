@@ -8,6 +8,8 @@ import Maps from '../../Map';
 import classes from './ShopInfo.module.css';
 
 const ShopInfo = (props) => {
+  console.log(props);
+
   return (
     <>
       <div className={classes.shop_img}>
@@ -25,10 +27,10 @@ const ShopInfo = (props) => {
         >
           <h3>매장 정보</h3>
 
-          <Link href={props.shopTel}>
+          <Link href={`tel:${props.shopTel}`}>
             <a className={classes.shop_info_item}>
               <PhoneOutlined />
-              <span>{props.shopTel}</span>
+              <span href={`tel:${props.shopTel}`}>{props.shopTel}</span>
             </a>
           </Link>
 
