@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
-import ShopList from '../components/homepage/ShopList';
+import ShopList from '../components/pageComponents/homePage/ShopList';
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(

@@ -3,23 +3,16 @@ import Link from 'next/link';
 import { Card } from 'antd';
 const { Meta } = Card;
 
+import classes from './StyleList.module.css';
+
 const StyleList = (props) => {
   return (
-    <ul>
+    <ul className={classes.style_book_list}>
       {props.styleInfoList.map((styleInfo) => (
-        <li key={styleInfo.id}>
+        <li key={styleInfo.id} className={classes.style_book_item}>
           <Link href={`/shop_info/${styleInfo.shopId}`}>
-            <a className='style-item'>
-              <Card
-                hoverable
-                style={{
-                  width: 300,
-                  marginBottom: 10,
-                  marginRight: 10,
-                  marginLeft: 10
-                }}
-                cover={<img alt={styleInfo.styleDesc} src={styleInfo.styleImg} />}
-              >
+            <a>
+              <Card hoverable cover={<img alt={styleInfo.styleDesc} src={styleInfo.styleImg} />}>
                 <Meta description={styleInfo.styleDesc} />
               </Card>
             </a>

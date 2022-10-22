@@ -1,4 +1,4 @@
-import StyleList from '../../components/stylepage/styleList';
+import StyleList from '../../components/pageComponents/styleBookPage/styleList';
 import { MongoClient, ObjectId } from 'mongodb';
 
 export async function getStaticProps() {
@@ -38,9 +38,7 @@ export async function getStaticProps() {
 const stylePage = (props) => {
   return (
     <div className='page-section'>
-      <div className='style-list'>
-        <StyleList styleInfoList={props.styleInfoList} />
-      </div>
+      <StyleList styleInfoList={props.styleInfoList} />
     </div>
   );
 };

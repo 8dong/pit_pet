@@ -1,0 +1,10 @@
+.style_book_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.style_book_item {
+  max-width: 250px;
+  margin: 0 10px 15px;
+}

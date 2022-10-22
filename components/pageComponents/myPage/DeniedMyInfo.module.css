@@ -1,0 +1,12 @@
+.denied_section {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.denied_section h3 {
+  font-size: 18px;
+  font-weight: 700;
+}

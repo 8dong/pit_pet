@@ -1,24 +1,18 @@
 import Link from 'next/link';
 
-import { HeartOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
 
+import classes from './ShopList.module.css';
+
 const ShopList = (props) => {
   return (
-    <ul>
+    <ul className={classes.shop_info_list}>
       {props.shopInfoList.map((shopInfo) => (
-        <li key={shopInfo.id} className='shop-item'>
+        <li key={shopInfo.id} className={classes.shop_info_item}>
           <Link href={`/shop_info/${shopInfo.id}`}>
             <a>
-              <Card
-                style={{
-                  maxWidth: 300,
-                  marginTop: 16,
-                  marginRight: 'auto',
-                  marginLeft: 'auto'
-                }}
-              >
+              <Card>
                 <Meta
                   avatar={<Avatar src={shopInfo.img} />}
                   title={shopInfo.name}
@@ -27,9 +21,6 @@ const ShopList = (props) => {
               </Card>
             </a>
           </Link>
-          {/* <button className={`like-btn`}>
-            <HeartOutlined className={`like-svg`} />
-          </button> */}
         </li>
       ))}
     </ul>

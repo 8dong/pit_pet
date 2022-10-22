@@ -1,0 +1,26 @@
+.shop_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 20px;
+}
+
+.shop_img img {
+  width: 100%;
+}
+
+.shop_info h3 {
+  font-size: 18px;
+}
+
+.shop_info {
+  margin: 0 20px 30px;
+}
+
+.shop_info_item {
+  width: 150px;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

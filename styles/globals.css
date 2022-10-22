@@ -5,30 +5,6 @@
   box-sizing: border-box;
 }
 
-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.backdrop {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(80, 72, 72, 0.493);
-
-  position: fixed;
-  z-index: 9999;
-}
-
-.modal {
-  width: 50%;
-  height: 30%;
-  position: absolute;
-  top: 40%;
-  right: 40%;
-  z-index: 99999;
-}
-
 #__next {
   min-width: 320px;
   max-width: 640px;
@@ -36,8 +12,22 @@ button {
   padding-bottom: 40px;
 }
 
+/* Commom Style */
 .page-section {
   padding-top: 150px;
+}
+
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .header-section {
@@ -54,9 +44,7 @@ button {
   left: 70%;
 }
 
-.shop-item {
-  position: relative;
-}
+/* ///// */
 
 .like-btn {
   position: absolute;
@@ -71,126 +59,3 @@ button {
 .active {
   color: red;
 }
-
-.style-list ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: space-between;
-}
-
-.shop-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px 30px;
-}
-
-.shop-img img {
-  width: 100%;
-}
-
-.shop-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px 30px;
-}
-
-.shop-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px 30px;
-}
-
-.button-section {
-  width: 100%;
-  margin: 0 10px 30px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.shop-style-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.shop-style-list li {
-  margin: 10px;
-}
-
-.tel-section {
-  display: flex;
-  margin: 20px;
-}
-
-.tel-section span {
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-}
-
-.tel-section p {
-  margin: auto 0;
-}
-
-.time-section {
-  display: flex;
-  margin: 20px;
-}
-
-.time-section span {
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-}
-
-.time-section p {
-  margin: auto 0;
-}
-
-.auth-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth-section h3 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
-.auth-section ul {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  width: 80%;
-  height: 30%;
-  margin: 0;
-  padding: 10px;
-}
-
-.denied-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-}
-
-.review-section {
-  padding: 10px;
-}
-
-/* .review-list {
-  width: 80%;
-} */

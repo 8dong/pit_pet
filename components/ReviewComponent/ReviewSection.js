@@ -1,5 +1,5 @@
 import { Avatar, Comment, Input } from 'antd';
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 
 import ReivewEditor from './ReviewEidtor';
@@ -9,7 +9,12 @@ const ReviewSection = (props) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = () => {
-    if (!value) return;
+    if (value.trim.length < 5) {
+      window.alert('5글자 이상 작성해주세요.');
+      setValue('');
+      setSubmitting(false);
+      return;
+    }
 
     setSubmitting(true);
 
@@ -17,6 +22,10 @@ const ReviewSection = (props) => {
       setSubmitting(false);
       setValue('');
     }, 500);
+  };
+
+  useEffect(() => {
+    if (!submitting) return;
 
     fetch('/api/insertReview', {
       method: 'POST',
@@ -33,8 +42,9 @@ const ReviewSection = (props) => {
       .then((res) => res.json())
       .then((data) => {
         props.onChangeCommentsList(data.reviewList.shop_review_list);
+        setSubmitting(false);
       });
-  };
+  }, [submitting, value, props]);
 
   const handleChange = (e) => {
     setValue(e.target.value);

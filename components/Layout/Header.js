@@ -64,7 +64,7 @@ const Header = () => {
       <Button
         onClick={() => {
           if (!session) router.push('/auth_form');
-          else signOut();
+          else signOut({ callbackUrl: '/' });
         }}
         className='auth-btn'
         type='primary'
