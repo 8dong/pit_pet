@@ -8,12 +8,12 @@ const ReviewSection = (props) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = () => {
-    if (value.trim.length < 5) {
-      window.alert('5글자 이상 작성해주세요.');
-      setValue('');
-      setSubmitting(false);
-      return;
-    }
+    // if (value.trim.length < 5) {
+    //   window.alert('5글자 이상 작성해주세요.');
+    //   setValue('');
+    //   setSubmitting(false);
+    //   return;
+    // }
 
     setSubmitting(true);
 
