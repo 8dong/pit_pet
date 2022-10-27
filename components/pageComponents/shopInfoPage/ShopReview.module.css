@@ -1,3 +1,11 @@
 .review_section {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review_section button {
+  margin-top: 20px;
+  height: 40px;
 }

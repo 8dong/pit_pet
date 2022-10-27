@@ -26,6 +26,7 @@ const ShopReview = (props) => {
 
   const reviewSection = session ? (
     <ReviewSection
+      style
       onChangeCommentsList={changeCommentsList}
       author={session.user.name}
       image={session.user.image}
