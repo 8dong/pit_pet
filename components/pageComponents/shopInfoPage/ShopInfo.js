@@ -8,8 +8,6 @@ import Maps from '../../Map';
 import classes from './ShopInfo.module.css';
 
 const ShopInfo = (props) => {
-  console.log(props);
-
   return (
     <>
       <div className={classes.shop_img}>

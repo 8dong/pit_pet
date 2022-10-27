@@ -54,7 +54,6 @@ const ShopPage = (props) => {
   const query = router.query;
   const id = query.id;
   const shopInfo = props.shopInfoList.find((shopInfo) => shopInfo.id === id);
-  console.log(shopInfo);
 
   return (
     <div className='page-section'>
