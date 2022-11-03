@@ -11,3 +11,18 @@
   margin-bottom: 15px;
   position: relative;
 }
+
+.shop_image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+}
+
+.shop_info_meta {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

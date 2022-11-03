@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, Card, Popover } from 'antd';
+import { Button, Popover } from 'antd';
 
 import classes from './ShopStyleBook.module.css';
 import Image from 'next/image';
@@ -20,7 +20,7 @@ const ShopStyleBook = (props) => {
         <Button
           onClick={showStyleListHandler}
           type='primary'
-        >{`스타일 북 ${styleListButton}`}</Button>
+        >{`매장 스타일 북 ${styleListButton}`}</Button>
       </div>
 
       {styleListShow && (
@@ -33,8 +33,9 @@ const ShopStyleBook = (props) => {
                     alt={style.desc}
                     src={style.img}
                     layout='fill'
-                    objectFit='contain'
+                    objectFit='cover'
                     placeholder='empty'
+                    quality='100'
                   />
                 </div>
               </li>

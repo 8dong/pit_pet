@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
@@ -12,11 +13,20 @@ const ShopList = (props) => {
         <li key={shopInfo.id} className={classes.shop_info_item}>
           <Link href={`/shop_info/${shopInfo.id}`}>
             <a>
-              <Card>
+              <Card
+                bodyStyle={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+                  padding: 10
+                }}
+              >
+                <div className={classes.shop_image}>
+                  <Image src={shopInfo.img} alt={shopInfo.name} layout='fill' objectFit='cover' />
+                </div>
                 <Meta
-                  avatar={<Avatar src={shopInfo.img} />}
                   title={shopInfo.name}
                   description={shopInfo.tel}
+                  className={classes.shop_info_meta}
                 />
               </Card>
             </a>

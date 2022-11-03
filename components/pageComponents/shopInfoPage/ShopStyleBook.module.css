@@ -14,7 +14,7 @@
 }
 
 .style_book_item {
-  width: 40%;
+  width: 100px;
   margin: 10px 0;
 }
 
@@ -25,5 +25,5 @@
 }
 
 .style_image img {
-  border-radius: 10%;
+  border-radius: 50%;
 }

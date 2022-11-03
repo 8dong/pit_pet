@@ -22,7 +22,7 @@ const StyleList = (props) => {
                       alt={styleInfo.styleDesc}
                       src={styleInfo.styleImg}
                       layout='fill'
-                      objectFit='contain'
+                      objectFit='cover'
                       placeholder='empty'
                     />
                   </div>
