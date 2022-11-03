@@ -6,12 +6,13 @@ import { Card } from 'antd';
 import Maps from '../../Map';
 
 import classes from './ShopInfo.module.css';
+import Image from 'next/image';
 
 const ShopInfo = (props) => {
   return (
     <>
       <div className={classes.shop_img}>
-        <img src={props.shopImg} alt={props.shopName} />
+        <Image src={props.shopImg} alt={props.shopName} layout='fill' objectFit='cover' />
       </div>
       <div className={`site-card-border-less-wrapper ${classes.shop_info}`}>
         <Card

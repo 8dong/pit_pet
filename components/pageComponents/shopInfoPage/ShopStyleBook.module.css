@@ -14,5 +14,12 @@
 }
 
 .style_book_item {
+  width: 30%;
   margin: 10px;
+}
+
+.style_image {
+  position: relative;
+  height: 150px;
+  margin: 10px 0;
 }

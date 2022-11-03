@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
   margin: 0 20px 20px;
+  position: relative;
 }
 
 .shop_img img {

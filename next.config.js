@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // reactStrictMode: true,
-  // swcMinify: true
+  images: {
+    domains: ['media.istockphoto.com', 'i.imgur.com', 'cdn.pixabay.com']
+  }
 };
 
 module.exports = nextConfig;
