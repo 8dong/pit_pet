@@ -9,6 +9,14 @@ const AuthForm = () => {
     {
       name: 'Naver',
       signInHandler: () => signIn('naver', { callbackUrl: '/' })
+    },
+    {
+      name: 'KaKao',
+      signInHandler: () => signIn('kakao', { callbackUrl: '/' })
+    },
+    {
+      name: 'Google',
+      signInHandler: () => signIn('Google', { callbackUrl: '/' })
     }
   ];
 
