@@ -7,7 +7,7 @@ const nextConfig = {
       'cdn.pixabay.com',
       'ssl.pstatic.net',
       'k.kakaocdn.net',
-      'googleusercontent.com'
+      'lh3.googleusercontent.com'
     ]
   }
 };
