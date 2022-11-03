@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { Button, Card, Popover } from 'antd';
-const { Meta } = Card;
 
 import classes from './ShopStyleBook.module.css';
 import Image from 'next/image';

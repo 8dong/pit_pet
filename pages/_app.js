@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services,clusterer&autoload=false`}
         strategy='beforeInteractive'
       />
-      <Header />
+      <Header></Header>
       <Component {...pageProps} />
     </SessionProvider>
   );

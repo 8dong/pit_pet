@@ -14,6 +14,7 @@ const StyleList = (props) => {
           <Link href={`/shop_info/${styleInfo.shopId}`}>
             <a>
               <Card
+                style={{ borderRadius: '5%', overflow: 'hidden' }}
                 hoverable
                 cover={
                   <div className={classes.style_image}>

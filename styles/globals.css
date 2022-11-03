@@ -43,19 +43,3 @@ button {
   top: 15%;
   left: 70%;
 }
-
-/* ///// */
-
-.like-btn {
-  position: absolute;
-  top: 70%;
-  left: 85%;
-}
-
-.like-svg {
-  font-size: 20px;
-}
-
-.active {
-  color: red;
-}

@@ -1,16 +1,15 @@
-import { Card } from 'antd';
+import { Avatar, Card } from 'antd';
+const { Meta } = Card;
 
 const MyInfo = (props) => {
   return (
     <div className='site-card-border-less-wrapper'>
-      <Card
-        title={props.userName}
-        bordered={false}
-        style={{
-          width: '100%'
-        }}
-      >
-        <p>Eamil: {props.userEmail}</p>
+      <Card style={{ width: '90%', margin: '0 auto' }}>
+        <Meta
+          avatar={<Avatar src={props.userImage} />}
+          title={props.userName}
+          description={props.userEmail}
+        />
       </Card>
     </div>
   );
