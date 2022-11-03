@@ -16,7 +16,7 @@ const AuthForm = () => {
     },
     {
       name: 'Google',
-      signInHandler: () => signIn('Google', { callbackUrl: '/' })
+      signInHandler: () => signIn('google', { callbackUrl: '/' })
     }
   ];
 
