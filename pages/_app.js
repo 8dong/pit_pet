@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <meta name='description' content='트렌디한 애견 미용 스타일 가이드북' />
         <meta
           name='viewport'
-          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=0'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=no'
         />
         <meta name='theme-color' content='#ffffff' />
       </Header>

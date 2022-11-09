@@ -5,12 +5,6 @@
   box-sizing: border-box;
 }
 
-input,
-textarea,
-select {
-  font-size: 16px;
-}
-
 #__next {
   min-width: 320px;
   max-width: 640px;
