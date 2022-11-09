@@ -37,8 +37,6 @@ const listData = Array.from({
   title: `loaded content ${i}`
 }));
 
-console.log(listData);
-
 const StyleListSkeleton = () => (
   <ul>
     {listData.map((item) => {
