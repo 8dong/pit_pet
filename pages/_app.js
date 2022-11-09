@@ -6,6 +6,7 @@ import Head from 'next/head';
 import HomePageSkeleton from '../components/skeletonUI/HomePageSkeleton';
 import StyleListSkeleton from '../components/skeletonUI/StyleListSkeleton';
 import LoadingSpinner from '../components/skeletonUI/Loading';
+import Header from '../components/Layout/Header';
 
 import '../styles/globals.css';
 import { useState } from 'react';
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         />
         <meta name='theme-color' content='#ffffff' />
       </Head>
+      <Header />
       <div className='page-section'>{pageContent}</div>
     </SessionProvider>
   );
