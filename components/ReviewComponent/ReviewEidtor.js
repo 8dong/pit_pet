@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -27,11 +27,12 @@ const ReivewEditor = (props) => {
       return;
     }
 
+    setSubmitting(true);
     sendReviewComments();
   };
 
-  const sendReviewComments = async () => {
-    setSubmitting(true);
+  const sendReviewComments = useCallback(async () => {
+    if (!submitting) return;
     props.onLoadingCommentsList(true);
 
     const response = await fetch('/api/insertReview', {
@@ -60,7 +61,7 @@ const ReivewEditor = (props) => {
     setSubmitting(false);
     props.onLoadingCommentsList(false);
     setComments('');
-  };
+  }, [submitting]);
 
   return (
     <>

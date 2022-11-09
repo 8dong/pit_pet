@@ -18,18 +18,14 @@ const Header = () => {
   };
 
   const onChange = (pageKey) => {
-    if (pageKey === '1') {
-      router.push('/');
-      setPageKey('1');
-    }
-    if (pageKey === '2') {
-      router.push('/style_book');
-      setPageKey('2');
-    }
-    if (pageKey === '3') {
-      router.push('/my_page');
-      setPageKey('3');
-    }
+    const mappedPage = {
+      1: '/',
+      2: '/style_book',
+      3: '/my_page'
+    };
+
+    router.push(mappedPage[pageKey]);
+    setPageKey(pageKey);
   };
 
   return (
