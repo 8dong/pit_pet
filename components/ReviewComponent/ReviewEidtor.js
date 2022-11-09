@@ -30,7 +30,6 @@ const ReivewEditor = (props) => {
 
   const sendReviewComments = async () => {
     setSubmitting(true);
-    if (!submitting) return;
     props.onLoadingCommentsList(true);
 
     const response = await fetch('/api/insertReview', {
