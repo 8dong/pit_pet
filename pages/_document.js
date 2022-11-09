@@ -1,18 +1,42 @@
 import Document, { Html, Head, NextScript, Main } from 'next/document';
+import Script from 'next/script';
+
+import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
+  static async getInitialProps(context) {
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = context.renderPage;
+
+    try {
+      context.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
+        });
+
+      const initialProps = await Document.getInitialProps(context);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        )
+      };
+    } finally {
+      sheet.seal();
+    }
+  }
+
   render() {
     return (
       <Html>
         <Head>
-          <title>PIT PET 애견 미용 스타일 가이드</title>
-          <meta name='keywords' content='pet, pet style, 애견 스타일, 애견 미용' />
-          <meta name='description' content='트렌디한 애견 미용 스타일 가이드북' />
-          <meta
-            name='viewport'
-            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scaleable=0'
+          <Script
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services,clusterer&autoload=false`}
+            strategy='beforeInteractive'
           />
-          <meta name='theme-color' content='#ffffff' />
         </Head>
         <body>
           <Main />

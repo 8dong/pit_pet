@@ -3,9 +3,9 @@ import { Avatar, List } from 'antd';
 const ReviewList = (props) => {
   return (
     <List
-      loading={props.comments ? false : true}
-      dataSource={props.comments}
-      header={`${props.comments.length} ${props.comments.length > 1 ? 'replies' : 'reply'}`}
+      loading={props.isLoading}
+      dataSource={props.commentsList}
+      header={`${props.commentsList.length} ${props.commentsList.length > 1 ? 'replies' : 'reply'}`}
       itemLayout='horizontal'
       renderItem={(item) => {
         return (

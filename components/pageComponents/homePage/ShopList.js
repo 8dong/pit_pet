@@ -1,10 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Avatar, Card } from 'antd';
+import styled from 'styled-components';
+
+import { Card } from 'antd';
 const { Meta } = Card;
 
 import classes from './ShopList.module.css';
+
+const CardWrapper = styled(Card)`
+  .ant-card-body {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+`;
 
 const ShopList = (props) => {
   return (
@@ -12,24 +22,16 @@ const ShopList = (props) => {
       {props.shopInfoList.map((shopInfo) => (
         <li key={shopInfo.id} className={classes.shop_info_item}>
           <Link href={`/shop_info/${shopInfo.id}`}>
-            <a>
-              <Card
-                bodyStyle={{
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-                  padding: 10
-                }}
-              >
-                <div className={classes.shop_image}>
-                  <Image src={shopInfo.img} alt={shopInfo.name} layout='fill' objectFit='cover' />
-                </div>
-                <Meta
-                  title={shopInfo.name}
-                  description={shopInfo.tel}
-                  className={classes.shop_info_meta}
-                />
-              </Card>
-            </a>
+            <CardWrapper>
+              <div className={classes.shop_image}>
+                <Image src={shopInfo.img} alt={shopInfo.name} layout='fill' objectFit='cover' />
+              </div>
+              <Meta
+                title={shopInfo.name}
+                description={shopInfo.tel}
+                className={classes.shop_info_meta}
+              />
+            </CardWrapper>
           </Link>
         </li>
       ))}

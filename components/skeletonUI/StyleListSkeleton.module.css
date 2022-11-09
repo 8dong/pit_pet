@@ -1,0 +1,10 @@
+.item {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.image {
+  width: 100%;
+  position: relative;
+  height: 200px;
+}

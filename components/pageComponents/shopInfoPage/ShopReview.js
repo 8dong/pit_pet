@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
-import { Button } from 'antd';
+import { Button, Avatar, Comment } from 'antd';
 
-import ReviewSection from '../../ReviewComponent/ReviewSection';
 import ReviewList from '../../ReviewComponent/ReviewList';
+import ReivewEditor from '../../ReviewComponent/ReviewEidtor';
 
 import classes from './ShopReview.module.css';
 
@@ -14,23 +14,30 @@ const ShopReview = (props) => {
 
   const { data: session } = useSession();
 
-  const [comments, setComments] = useState(props.reviewList);
+  const [commentsList, setCommentsList] = useState(props.reviewList);
+  const [isLoading, setIsLoading] = useState(false);
 
   const changeCommentsList = (comments) => {
-    setComments(comments);
+    setCommentsList(comments);
   };
 
   const inviteLoginHandler = () => {
     router.push('/auth_form');
   };
 
+  const loadingCommentsList = (isLoading) => {
+    setIsLoading(isLoading);
+  };
+
   const reviewSection = session ? (
-    <ReviewSection
-      style
-      onChangeCommentsList={changeCommentsList}
-      author={session.user.name}
-      image={session.user.image}
-      shopId={router.query.id}
+    <Comment
+      avatar={<Avatar src={session.user.image} alt={session.user.name} />}
+      content={
+        <ReivewEditor
+          onChangeCommentsList={changeCommentsList}
+          onLoadingCommentsList={loadingCommentsList}
+        />
+      }
     />
   ) : (
     <Button onClick={inviteLoginHandler}>리뷰 작성은 로그인이 필요한 서비스입니다.</Button>
@@ -38,7 +45,7 @@ const ShopReview = (props) => {
 
   return (
     <div className={classes.review_section}>
-      <ReviewList comments={comments} />
+      <ReviewList commentsList={commentsList} isLoading={isLoading} />
       {reviewSection}
     </div>
   );

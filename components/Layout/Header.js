@@ -1,7 +1,7 @@
 import { LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { PageHeader, Tabs, Button } from 'antd';
 
-import { useSession, signOut, getSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 
 import { useState } from 'react';
 import { useRouter } from 'next/router';

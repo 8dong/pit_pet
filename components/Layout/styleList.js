@@ -8,8 +8,6 @@ import styled from 'styled-components';
 import { Card } from 'antd';
 const { Meta } = Card;
 
-import StyleListSkeleton from '../../skeletonUI/StyleListSkeleton';
-
 import classes from './StyleList.module.css';
 
 const CardWrapper = styled(Card)`
@@ -25,28 +23,13 @@ const MetaWrapper = styled(Meta)`
 
 const StyleList = (props) => {
   const [styleList, setStyleList] = useState(props.styleInfoList);
-  const [fetchDataNum, setFetchDataNum] = useState(2);
+  const [fetchDataNum, setFetchDataNum] = useState(1);
   const [isFetchedData, setIsFetchedData] = useState(false);
-  const [isDone, setIsDone] = useState(false);
 
   const fetchData = async (dataNum) => {
-    const res = await fetch('/api/fetchStyleList', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ dataNum })
-    });
-
+    const res = await fetch('/api/fetchStyleList', dataNum);
     const data = await res.json();
-
-    if (data.done) {
-      setIsDone(true);
-      return;
-    }
-
-    setStyleList((prevList) => [...prevList, ...data.styleList]);
-    setIsDone(false);
+    setStyleList((prevList) => [...prevList, ...data]);
     setIsFetchedData(true);
   };
 
@@ -55,7 +38,6 @@ const StyleList = (props) => {
   }, [fetchDataNum]);
 
   const loadMore = () => {
-    console.log('load');
     setFetchDataNum((prev) => prev + 1);
   };
 
@@ -100,15 +82,8 @@ const StyleList = (props) => {
             </Link>
           </li>
         ))}
+        <div ref={observerTargetEl}></div>
       </ul>
-      {isDone ? (
-        <></>
-      ) : (
-        <>
-          <StyleListSkeleton />
-          <div ref={observerTargetEl}></div>
-        </>
-      )}
     </>
   );
 };

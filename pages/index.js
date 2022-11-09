@@ -30,9 +30,5 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-  return (
-    <div className='page-section'>
-      <ShopList shopInfoList={props.shopInfoList} />
-    </div>
-  );
+  return <ShopList shopInfoList={props.shopInfoList} />;
 }

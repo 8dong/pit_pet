@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Button, Popover } from 'antd';
 
@@ -29,14 +29,7 @@ const ShopStyleBook = (props) => {
             <Popover key={style.id} content={style.desc} trigger='hover'>
               <li className={classes.style_book_item}>
                 <div className={classes.style_image}>
-                  <Image
-                    alt={style.desc}
-                    src={style.img}
-                    layout='fill'
-                    objectFit='cover'
-                    placeholder='empty'
-                    quality='100'
-                  />
+                  <Image alt={style.desc} src={style.img} layout='fill' objectFit='cover' />
                 </div>
               </li>
             </Popover>

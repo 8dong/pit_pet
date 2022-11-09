@@ -56,7 +56,7 @@ const ShopPage = (props) => {
   const shopInfo = props.shopInfoList.find((shopInfo) => shopInfo.id === id);
 
   return (
-    <div className='page-section'>
+    <>
       <ShopInfo
         shopImg={shopInfo.img}
         shopName={shopInfo.name}
@@ -65,7 +65,7 @@ const ShopPage = (props) => {
       />
       <ShopStyleBook styleList={shopInfo.styleList} />
       <ShopReview reviewList={shopInfo.reviewList} />
-    </div>
+    </>
   );
 };
 

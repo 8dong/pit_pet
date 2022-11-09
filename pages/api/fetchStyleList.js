@@ -1,7 +1,6 @@
-import StyleList from '../../components/pageComponents/styleBookPage/styleList';
 import { MongoClient, ObjectId } from 'mongodb';
 
-export async function getStaticProps() {
+const handle = async (req, res) => {
   const client = await MongoClient.connect(
     'mongodb+srv://hyde981114:rla980926@cluster0.v9xjy6e.mongodb.net/pitpet?retryWrites=true&w=majority'
   );
@@ -10,7 +9,13 @@ export async function getStaticProps() {
 
   const shopCollection = database.collection('shop_list');
 
-  const shopData = await shopCollection.find().limit(1).toArray();
+  const listLength = (await shopCollection.find().toArray()).length;
+  if (listLength === req.body.dataNum) {
+    res.status(200).json({ done: true });
+    return;
+  }
+
+  const shopData = await shopCollection.find().skip(req.body.dataNum).limit(1).toArray();
 
   const styleInfoList = [];
 
@@ -28,15 +33,7 @@ export async function getStaticProps() {
 
   client.close();
 
-  return {
-    props: {
-      styleInfoList
-    }
-  };
-}
-
-const stylePage = (props) => {
-  return <StyleList styleInfoList={props.styleInfoList} />;
+  res.status(200).json({ styleList: styleInfoList, done: false });
 };
 
-export default stylePage;
+export default handle;
