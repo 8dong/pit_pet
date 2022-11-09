@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+
 import { Card, Skeleton } from 'antd';
 
 import styled from 'styled-components';
@@ -37,38 +39,44 @@ const listData = Array.from({
   title: `loaded content ${i}`
 }));
 
-const StyleListSkeleton = () => (
-  <ul>
-    {listData.map((item) => {
-      return (
-        <li className={classes.item} key={item.title}>
-          <CardWrapper
-            cover={
-              <div className={classes.image}>
-                <SkeletonImage active />
-              </div>
-            }
-          >
-            <Skeleton paragraph={{ rows: 0 }} />
-          </CardWrapper>
-        </li>
-      );
-    })}
-  </ul>
-);
+const StyleListSkeleton = () => {
+  return (
+    <ul className={classes.list}>
+      {listData.map((item) => {
+        return (
+          <li className={classes.item} key={item.title}>
+            <CardWrapper
+              cover={
+                <div className={classes.image}>
+                  <SkeletonImage active />
+                </div>
+              }
+            >
+              <Skeleton paragraph={{ rows: 0 }} />
+            </CardWrapper>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
-export const StyleSkeleton = () => (
-  <div className={classes.item}>
-    <CardWrapper
-      cover={
-        <div className={classes.image}>
-          <SkeletonImage active />
-        </div>
-      }
-    >
-      <Skeleton paragraph={{ rows: 0 }} />
-    </CardWrapper>
-  </div>
-);
+export const StyleSkeleton = forwardRef((_, ref) => {
+  return (
+    <div className={classes.item} ref={ref}>
+      <CardWrapper
+        cover={
+          <div className={classes.image}>
+            <SkeletonImage active />
+          </div>
+        }
+      >
+        <Skeleton paragraph={{ rows: 0 }} />
+      </CardWrapper>
+    </div>
+  );
+});
+
+StyleSkeleton.displayName = 'StyleSkeleton';
 
 export default StyleListSkeleton;

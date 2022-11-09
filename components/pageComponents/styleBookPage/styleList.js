@@ -40,19 +40,22 @@ const StyleList = (props) => {
 
     const data = await res.json();
 
+    setStyleList((prevList) => [...prevList, ...data.styleList]);
+
     if (data.done) {
       setIsDone(true);
-      return;
+    } else {
+      setIsDone(false);
     }
 
-    setStyleList((prevList) => [...prevList, ...data.styleList]);
-    setIsDone(false);
     setIsFetchedData(true);
   };
 
   useEffect(() => {
-    fetchData(fetchDataNum);
-  }, [fetchDataNum]);
+    if (!isDone) {
+      fetchData(fetchDataNum);
+    }
+  }, [fetchDataNum, isDone]);
 
   const loadMore = () => {
     setFetchDataNum((prev) => prev + 1);
@@ -68,7 +71,7 @@ const StyleList = (props) => {
             loadMore();
           }
         },
-        { threshold: 1 }
+        { threshold: 0.5 }
       );
       observer.observe(observerTargetEl.current);
     }
@@ -99,15 +102,8 @@ const StyleList = (props) => {
             </Link>
           </li>
         ))}
+        {isDone ? <></> : <StyleSkeleton ref={observerTargetEl} />}
       </ul>
-      {isDone ? (
-        <></>
-      ) : (
-        <>
-          <StyleSkeleton />
-          <div ref={observerTargetEl}></div>
-        </>
-      )}
     </>
   );
 };

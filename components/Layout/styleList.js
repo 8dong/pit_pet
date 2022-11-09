@@ -29,6 +29,7 @@ const StyleList = (props) => {
   const fetchData = async (dataNum) => {
     const res = await fetch('/api/fetchStyleList', dataNum);
     const data = await res.json();
+
     setStyleList((prevList) => [...prevList, ...data]);
     setIsFetchedData(true);
   };
@@ -51,7 +52,7 @@ const StyleList = (props) => {
             loadMore();
           }
         },
-        { threshold: 1 }
+        { threshold: 0.5 }
       );
       observer.observe(observerTargetEl.current);
     }

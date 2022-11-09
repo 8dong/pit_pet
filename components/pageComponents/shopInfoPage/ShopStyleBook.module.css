@@ -27,3 +27,12 @@
 .style_image img {
   border-radius: 50%;
 }
+
+.prefix-enter {
+  opacity: 0;
+  transition: all 300ms ease-in-out 0ms;
+}
+
+.prefix-enter-active {
+  opacity: 1;
+}

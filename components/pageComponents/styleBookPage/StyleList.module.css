@@ -1,12 +1,14 @@
 .style_book_list {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
 .style_book_item {
-  width: 80%;
-  margin: 10px 0;
+  width: 300px;
+  margin: 10px;
 }
 
 .style_image {

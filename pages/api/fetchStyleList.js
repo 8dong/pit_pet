@@ -10,10 +10,6 @@ const handle = async (req, res) => {
   const shopCollection = database.collection('shop_list');
 
   const listLength = (await shopCollection.find().toArray()).length;
-  if (listLength === req.body.dataNum) {
-    res.status(200).json({ done: true });
-    return;
-  }
 
   const shopData = await shopCollection.find().skip(req.body.dataNum).limit(1).toArray();
 
@@ -33,7 +29,11 @@ const handle = async (req, res) => {
 
   client.close();
 
-  res.status(200).json({ styleList: styleInfoList, done: false });
+  if (listLength - 1 === req.body.dataNum) {
+    res.status(200).json({ styleList: styleInfoList, done: true });
+  } else {
+    res.status(200).json({ styleList: styleInfoList, done: false });
+  }
 };
 
 export default handle;

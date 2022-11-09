@@ -1,4 +1,4 @@
-import { Avatar, Card } from 'antd';
+import { Card } from 'antd';
 import Image from 'next/image';
 const { Meta } = Card;
 
