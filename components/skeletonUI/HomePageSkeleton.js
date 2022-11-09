@@ -4,7 +4,7 @@ import React from 'react';
 import classes from './HomePageSkeleton.module.css';
 
 const listData = Array.from({
-  length: 5
+  length: 4
 }).map((_, i) => ({
   title: `loaded content ${i}`
 }));

@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Card } from 'antd';
 const { Meta } = Card;
 
-import StyleListSkeleton from '../../skeletonUI/StyleListSkeleton';
+import { StyleSkeleton } from '../../skeletonUI/StyleListSkeleton';
 
 import classes from './StyleList.module.css';
 
@@ -55,7 +55,6 @@ const StyleList = (props) => {
   }, [fetchDataNum]);
 
   const loadMore = () => {
-    console.log('load');
     setFetchDataNum((prev) => prev + 1);
   };
 
@@ -105,7 +104,7 @@ const StyleList = (props) => {
         <></>
       ) : (
         <>
-          <StyleListSkeleton />
+          <StyleSkeleton />
           <div ref={observerTargetEl}></div>
         </>
       )}

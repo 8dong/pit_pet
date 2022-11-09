@@ -31,7 +31,35 @@ const CardWrapper = styled(Card)`
   }
 `;
 
-const App = () => (
+const listData = Array.from({
+  length: 2
+}).map((_, i) => ({
+  title: `loaded content ${i}`
+}));
+
+console.log(listData);
+
+const StyleListSkeleton = () => (
+  <ul>
+    {listData.map((item) => {
+      return (
+        <li className={classes.item} key={item.title}>
+          <CardWrapper
+            cover={
+              <div className={classes.image}>
+                <SkeletonImage active />
+              </div>
+            }
+          >
+            <Skeleton paragraph={{ rows: 0 }} />
+          </CardWrapper>
+        </li>
+      );
+    })}
+  </ul>
+);
+
+export const StyleSkeleton = () => (
   <div className={classes.item}>
     <CardWrapper
       cover={
@@ -44,4 +72,5 @@ const App = () => (
     </CardWrapper>
   </div>
 );
-export default App;
+
+export default StyleListSkeleton;
