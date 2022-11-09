@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -18,20 +18,18 @@ const ReivewEditor = (props) => {
     setComments(event.target.value);
   };
 
-  const onSumbitHandler = (event) => {
-    event.stopPropagation();
-
+  const onSumbitHandler = () => {
     if (comments.trim().length < 5) {
       window.alert('5글자 이상 작성해주세요.');
       setComments('');
       return;
     }
 
-    setSubmitting(true);
     sendReviewComments();
   };
 
   const sendReviewComments = async () => {
+    setSubmitting(true);
     if (!submitting) return;
     props.onLoadingCommentsList(true);
 
