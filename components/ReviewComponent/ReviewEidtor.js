@@ -31,7 +31,7 @@ const ReivewEditor = (props) => {
     sendReviewComments();
   };
 
-  const sendReviewComments = useCallback(async () => {
+  const sendReviewComments = async () => {
     if (!submitting) return;
     props.onLoadingCommentsList(true);
 
@@ -61,7 +61,7 @@ const ReivewEditor = (props) => {
     setSubmitting(false);
     props.onLoadingCommentsList(false);
     setComments('');
-  }, [submitting]);
+  };
 
   return (
     <>
