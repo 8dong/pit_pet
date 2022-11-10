@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   images: {
+    imageSizes: [],
+    deviceSizes: [100, 400],
     domains: [
       'media.istockphoto.com',
-      'i.imgur.com',
       'cdn.pixabay.com',
+      'i.imgur.com',
       'ssl.pstatic.net',
       'k.kakaocdn.net',
       'lh3.googleusercontent.com'
     ]
   }
 };
-
-module.exports = nextConfig;

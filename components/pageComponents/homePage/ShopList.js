@@ -24,7 +24,13 @@ const ShopList = (props) => {
           <Link href={`/shop_info/${shopInfo.id}`}>
             <CardWrapper>
               <div className={classes.shop_image}>
-                <Image src={shopInfo.img} alt={shopInfo.name} layout='fill' objectFit='cover' />
+                <Image
+                  src={shopInfo.img}
+                  alt={shopInfo.name}
+                  sizes='100px'
+                  layout='fill'
+                  objectFit='cover'
+                />
               </div>
               <Meta
                 title={shopInfo.name}

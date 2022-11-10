@@ -88,6 +88,7 @@ const StyleList = (props) => {
                 cover={
                   <div className={classes.style_image}>
                     <Image
+                      sizes='400px'
                       alt={styleInfo.styleDesc}
                       src={styleInfo.styleImg}
                       layout='fill'
