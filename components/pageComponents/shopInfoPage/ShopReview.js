@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
@@ -17,17 +17,17 @@ const ShopReview = (props) => {
   const [commentsList, setCommentsList] = useState(props.reviewList);
   const [isLoading, setIsLoading] = useState(false);
 
-  const changeCommentsList = (comments) => {
-    setCommentsList(comments);
-  };
-
-  const inviteLoginHandler = () => {
+  const inviteLoginHandler = useCallback(() => {
     router.push('/auth_form');
-  };
+  }, [router]);
 
-  const loadingCommentsList = (isLoading) => {
+  const changeCommentsList = useCallback((comments) => {
+    setCommentsList(comments);
+  }, []);
+
+  const loadingCommentsList = useCallback((isLoading) => {
     setIsLoading(isLoading);
-  };
+  }, []);
 
   const reviewSection = session ? (
     <Comment
@@ -42,6 +42,8 @@ const ShopReview = (props) => {
   ) : (
     <Button onClick={inviteLoginHandler}>리뷰 작성은 로그인이 필요한 서비스입니다.</Button>
   );
+
+  console.log(isLoading);
 
   return (
     <div className={classes.review_section}>

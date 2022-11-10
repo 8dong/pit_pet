@@ -6,15 +6,7 @@ import DeniedMyInfo from './DeniedMyInfo';
 const MyPageContent = () => {
   const { data: session } = useSession();
 
-  const myInfoContent = session ? (
-    <MyInfo
-      userName={session.user.name}
-      userEmail={session.user.email}
-      userImage={session.user.image}
-    />
-  ) : (
-    <DeniedMyInfo />
-  );
+  const myInfoContent = session ? <MyInfo /> : <DeniedMyInfo />;
 
   return myInfoContent;
 };

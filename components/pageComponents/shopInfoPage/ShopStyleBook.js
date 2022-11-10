@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Button, Popover } from 'antd';
 
@@ -8,9 +8,9 @@ import Image from 'next/image';
 const ShopStyleBook = (props) => {
   const [styleListShow, setStyleListShow] = useState(false);
 
-  const showStyleListHandler = () => {
+  const showStyleListHandler = useCallback(() => {
     setStyleListShow((prevState) => !prevState);
-  };
+  }, []);
 
   const styleListButton = styleListShow ? '닫기' : '펼치기';
 

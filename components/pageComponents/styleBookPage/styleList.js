@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,7 +29,7 @@ const StyleList = (props) => {
   const [isFetchedData, setIsFetchedData] = useState(false);
   const [isDone, setIsDone] = useState(false);
 
-  const fetchData = async (dataNum) => {
+  const fetchData = useCallback(async (dataNum) => {
     const res = await fetch('/api/fetchStyleList', {
       method: 'POST',
       headers: {
@@ -49,17 +49,17 @@ const StyleList = (props) => {
     }
 
     setIsFetchedData(true);
-  };
+  }, []);
 
   useEffect(() => {
     if (!isDone) {
       fetchData(fetchDataNum);
     }
-  }, [fetchDataNum, isDone]);
+  }, [fetchDataNum, isDone, fetchData]);
 
-  const loadMore = () => {
+  const loadMore = useCallback(() => {
     setFetchDataNum((prev) => prev + 1);
-  };
+  }, []);
 
   const observerTargetEl = useRef();
 
@@ -75,37 +75,35 @@ const StyleList = (props) => {
       );
       observer.observe(observerTargetEl.current);
     }
-  }, [isFetchedData]);
+  }, [isFetchedData, loadMore]);
 
   return (
-    <>
-      <ul className={classes.style_book_list}>
-        {styleList.map((styleInfo) => (
-          <li key={styleInfo.id} className={classes.style_book_item}>
-            <Link href={`/shop_info/${styleInfo.shopId}`}>
-              <CardWrapper
-                hoverable
-                cover={
-                  <div className={classes.style_image}>
-                    <Image
-                      sizes='400px'
-                      alt={styleInfo.styleDesc}
-                      src={styleInfo.styleImg}
-                      layout='fill'
-                      objectFit='cover'
-                      placeholder='empty'
-                    />
-                  </div>
-                }
-              >
-                <MetaWrapper description={styleInfo.styleDesc} />
-              </CardWrapper>
-            </Link>
-          </li>
-        ))}
-        {isDone ? <></> : <StyleSkeleton ref={observerTargetEl} />}
-      </ul>
-    </>
+    <ul className={classes.style_book_list}>
+      {styleList.map((styleInfo) => (
+        <li key={styleInfo.id} className={classes.style_book_item}>
+          <Link href={`/shop_info/${styleInfo.shopId}`}>
+            <CardWrapper
+              hoverable
+              cover={
+                <div className={classes.style_image}>
+                  <Image
+                    sizes='400px'
+                    alt={styleInfo.styleDesc}
+                    src={styleInfo.styleImg}
+                    layout='fill'
+                    objectFit='cover'
+                    placeholder='empty'
+                  />
+                </div>
+              }
+            >
+              <MetaWrapper description={styleInfo.styleDesc} />
+            </CardWrapper>
+          </Link>
+        </li>
+      ))}
+      {isDone ? <></> : <StyleSkeleton ref={observerTargetEl} />}
+    </ul>
   );
 };
 

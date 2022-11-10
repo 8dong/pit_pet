@@ -1,6 +1,6 @@
-import { Button } from 'antd';
-
 import { signIn } from 'next-auth/react';
+
+import { Button } from 'antd';
 
 import classes from './AuthForm.module.css';
 
@@ -26,14 +26,7 @@ const AuthForm = () => {
       <ul className={classes.auth_list}>
         {authList.map((authItem) => (
           <li key={authItem.name}>
-            <Button
-              style={{
-                border: 'none'
-              }}
-              type='primary'
-              size='large'
-              onClick={authItem.signInHandler}
-            >
+            <Button type='primary' size='large' onClick={authItem.signInHandler}>
               {authItem.name}
             </Button>
           </li>

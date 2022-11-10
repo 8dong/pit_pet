@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -14,14 +14,19 @@ const ReivewEditor = (props) => {
 
   const shopId = useRouter().query;
 
-  const onChangeCommentsHandler = (event) => {
+  const onChangeCommentsHandler = useCallback((event) => {
     setComments(event.target.value);
-  };
+  }, []);
 
   const onSumbitHandler = () => {
+    setSubmitting(true);
+    props.onLoadingCommentsList(true);
+
     if (comments.trim().length < 5) {
       window.alert('5글자 이상 작성해주세요.');
       setComments('');
+      setSubmitting(false);
+      props.onLoadingCommentsList(false);
       return;
     }
 
@@ -29,9 +34,6 @@ const ReivewEditor = (props) => {
   };
 
   const sendReviewComments = async () => {
-    setSubmitting(true);
-    props.onLoadingCommentsList(true);
-
     const response = await fetch('/api/insertReview', {
       method: 'POST',
       headers: {
@@ -63,7 +65,12 @@ const ReivewEditor = (props) => {
   return (
     <>
       <Form.Item>
-        <TextArea rows={4} onChange={onChangeCommentsHandler} value={comments} />
+        <TextArea
+          rows={4}
+          onChange={onChangeCommentsHandler}
+          onPressEnter={onSumbitHandler}
+          value={comments}
+        />
       </Form.Item>
       <Form.Item>
         <Button htmlType='submit' loading={submitting} onClick={onSumbitHandler} type='primary'>
@@ -74,4 +81,4 @@ const ReivewEditor = (props) => {
   );
 };
 
-export default ReivewEditor;
+export default React.memo(ReivewEditor);
