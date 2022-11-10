@@ -21,7 +21,13 @@ const ShopInfo = (props) => {
   return (
     <>
       <div className={classes.shop_img}>
-        <Image src={props.shopImg} alt={props.shopName} layout='fill' objectFit='cover' />
+        <Image
+          src={props.shopImg}
+          alt={props.shopName}
+          sizes='600'
+          layout='fill'
+          objectFit='cover'
+        />
       </div>
       <div className={`site-card-border-less-wrapper ${classes.shop_info}`}>
         <CardWrapper size='small' title={props.shopName} bordered={false}>

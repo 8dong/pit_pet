@@ -2,7 +2,7 @@
 module.exports = {
   images: {
     imageSizes: [],
-    deviceSizes: [100, 400],
+    deviceSizes: [100, 400, 700],
     domains: [
       'media.istockphoto.com',
       'cdn.pixabay.com',
