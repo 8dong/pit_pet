@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 
 import { Button, Avatar, Comment } from 'antd';
 
-import ReviewList from '../../ReviewComponent/ReviewList';
-import ReivewEditor from '../../ReviewComponent/ReviewEidtor';
+import ReviewList from './ReviewComponent/ReviewList';
+import ReivewEditor from './ReviewComponent/ReviewEidtor';
 
 import classes from './ShopReview.module.css';
 
