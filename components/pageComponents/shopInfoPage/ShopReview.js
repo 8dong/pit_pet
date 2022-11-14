@@ -43,8 +43,6 @@ const ShopReview = (props) => {
     <Button onClick={inviteLoginHandler}>리뷰 작성은 로그인이 필요한 서비스입니다.</Button>
   );
 
-  console.log(isLoading);
-
   return (
     <div className={classes.review_section}>
       <ReviewList commentsList={commentsList} isLoading={isLoading} />
