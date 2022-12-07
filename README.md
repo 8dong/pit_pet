@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PIT PET
 
-## Getting Started
+## 프로젝트 실행
 
-First, run the development server:
+1. <code>npm i</code>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+2. <code>npm run dev</code>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a> 접속
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 기술 스택
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React">
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" alt="styled-components">
+  
+## 구현 명세
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 컴포넌트
 
-## Learn More
+atnd 라이브러리를 사용하였으며, styled-components를 통해 CSS 스타일을 수정하였습니다.
 
-To learn more about Next.js, take a look at the following resources:
+### 매장 리스트(/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. SSG 방식의 pre-rendering을 사용하며, 초기 매장 정보를 MongoDB에 요청을 보내 응답받아 props로 Home 페이지 컴포넌트에게 전달하여 렌더링합니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. 각 매장 클릭시 해당 매장 페이지로 이동하게 됩니다.
 
-## Deploy on Vercel
+### 스타일 북(/style_book)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 스타일 리스트를 react-intersection-observer를 사용하여 Infinity Scroll을 구현하였습니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Skeleton UI를 적용하여 UX 측면을 개선하였습니다.
+
+3. 각 스타일 클릭시 해당 스타일의 매장 정보 페이지로 이동하게 됩니다.
+
+### 나의 메뉴(/my_info)
+
+1. 로그인한 상태에서만 접속가능하며, next-auth를 통해 소셜 로그인 기능을 구현하였습니다(naver의 경우 개발 단계라 인증이 불가능한 상태이며 goggle과 kakao는 정상적으로 인증이 가능합니다).
+
+### 매장 디테일(/[shopId])
+
+1. 특정 매장에 대한 정보를 표시합니다.
+
+2. 로그인된 경우 리뷰를 작성할 수 있으며, 리뷰의 경우 양끝 공백을 제외한 5글자 이상 작성해야 합니다.
+
+3. 작성된 리뷰를 등록시 MongoDB에 요청을 보내 저장합니다.
